@@ -3,7 +3,7 @@
 ## Dependencies
 - [Nmap 7.92](https://nmap.org/download.html) or superior
 - [Python 3.9](https://www.python.org/downloads/) or superior
-- All requirements written in [requirements.txt](https://github.com/NexCreep/HostScann/requiremets.txt)
+- All requirements written in [requirements.txt](https://github.com/NexCreep/HostScann/blob/main/requirements.txt)
 
 ## Usage
 ### Short Help
@@ -36,3 +36,4 @@ Arch      X
 ### Arguments
 - ```-net4 <netmask-ipv4>``` : Here you introduce the netmask address **after the net4** argument.
 - ```-hinfo``` : If you want more info from the host.
+## HAPPY HACKING <3
