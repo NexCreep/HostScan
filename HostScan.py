@@ -83,10 +83,10 @@ def scan_host(ip: str, moreInfo: bool):
 
 
 if __name__ == "__main__":
-    import sys, platform
+    import sys, platform, os
     from tabulate import tabulate
     
-    with open("./credits.txt") as credits:
+    with open(os.path.dirname(os.path.realpath(__file__)) + '\credits.txt') as credits:
         print(f"\n{credits.read()}");
 
     os_table = [
