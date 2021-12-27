@@ -8,7 +8,7 @@
 ## Usage
 ### Short Help
 ```bash
-$~ python .\python .\HostScan.py
+$~ python .\HostScan.py
 ```
 ```bash
 $$\   $$\                       $$\      $$$$$$\
