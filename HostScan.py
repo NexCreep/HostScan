@@ -2,12 +2,7 @@ import nmap
 from threading import Thread
 from time import sleep
 
-endLoad = False
-
-
-
-class Loading_thread:
-      
+class Loading_thread:      
     def __init__(self):
         self._running = True
       
@@ -67,7 +62,8 @@ def scan_host(ip: str, moreInfo: bool):
                     print()
 
         sys.exit(0)
-    except nmap.nmap.PortScannerError as e:     
+    except nmap.nmap.PortScannerError as e:
+        load.terminate()     
         print("[-] You must have installed and added to path nmap from this url -> https://nmap.org/download.html")
 
     except KeyboardInterrupt as e:
@@ -75,6 +71,7 @@ def scan_host(ip: str, moreInfo: bool):
         print("\n[-] Exit by user")
 
     except Exception as e:
+        load.terminate()
         print(e)
     
     sys.exit(1)
@@ -86,7 +83,7 @@ if __name__ == "__main__":
     import sys, platform, os
     from tabulate import tabulate
     
-    with open(os.path.dirname(os.path.realpath(__file__)) + '\credits.txt') as credits:
+    with open(os.path.join(os.path.dirname(__file__), "credits.txt")) as credits:
         print(f"\n{credits.read()}");
 
     os_table = [
@@ -97,13 +94,18 @@ if __name__ == "__main__":
     print("\nOS INFORMATION")
     print(tabulate(os_table))
     
+    useHinfo = False
 
     if len(sys.argv) > 1:
         if "-net4" in sys.argv:
-            if "-hinfo" in sys.argv:
-                scan_host(sys.argv[sys.argv.index("-net4") + 1], True)
-            else:
-                scan_host(sys.argv[sys.argv.index("-net4") + 1], False)
+
+            if "-hinfo" in sys.argv: 
+                useHinfo = True
+
+            try:
+                scan_host(sys.argv[sys.argv.index("-net4") + 1], useHinfo)
+            except IndexError:
+                print("[!] You forgot to include ipv4 mask here: -net4 <-Here")
             
     
     print("\n[?] HostScan.py -net4 <netmask-ipv4> [-hinfo | -h/--help]")
