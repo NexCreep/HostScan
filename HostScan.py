@@ -80,7 +80,7 @@ def scan_host(ip: str, moreInfo: bool):
 
 
 if __name__ == "__main__":
-    import sys, platform, os
+    import sys, platform, os, distro
     from tabulate import tabulate
     
     with open(os.path.join(os.path.dirname(__file__), "credits.txt")) as credits:
@@ -91,6 +91,11 @@ if __name__ == "__main__":
         ["Version", platform.release()],
         ["Arch", platform.machine()]
     ]
+
+    if os.name.upper() == 'POSIX':
+        distro_tuple = distro.linux_distribution()
+        os_table.insert(0, ["Distro", f'{distro_tuple[0]} {distro_tuple[1]}'])
+
     print("\nOS INFORMATION")
     print(tabulate(os_table))
     
