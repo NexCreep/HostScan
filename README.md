@@ -2,7 +2,7 @@
 ### Easy to use command line network host scanner. *From noob to noobs.*
 ## Dependencies
 - [Nmap 7.92](https://nmap.org/download.html) or superior
-- [Python 3.9](https://www.python.org/downloads/) or superior
+- [Python 3.8](https://www.python.org/downloads/) or superior
 - All requirements written in [requirements.txt](https://github.com/NexCreep/HostScann/blob/main/requirements.txt)
 
 ## Usage
@@ -31,7 +31,7 @@ Version   X
 Arch      X
 --------  -------
 
-[?] HostScan.py -net4 <netmask-ipv4> [-hinfo | -h/--help]
+[?] HostScan -net4 <netmask-ipv4> [-hinfo]
 ```
 ### Arguments
 - ```-net4 <netmask-ipv4>``` : Here you introduce the netmask address **after the net4** argument.

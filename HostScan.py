@@ -62,18 +62,16 @@ def scan_host(ip: str, moreInfo: bool):
                     print()
 
         sys.exit(0)
-    except nmap.nmap.PortScannerError as e:
-        load.terminate()     
+    except nmap.nmap.PortScannerError as e:     
         print("[-] You must have installed and added to path nmap from this url -> https://nmap.org/download.html")
 
     except KeyboardInterrupt as e:
-        load.terminate()
         print("\n[-] Exit by user")
 
     except Exception as e:
-        load.terminate()
         print(e)
     
+    load.terminate()
     sys.exit(1)
 
     
