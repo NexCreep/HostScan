@@ -19,7 +19,7 @@ class Loading_thread:
             sleep(1)
         if i >= MAX_TIME:
             print(f"\n[-] This is taking a may while. Take a look to arguments you introduce. Use Ctrl+C to finish proccess (Timeout)")
-        print(f"(Proccess took {i} sec)", end="", flush=True)
+        print(f"(Proccess took {i} sec)", flush=True)
 
 def scan_host(ip: str, moreInfo: bool):
     print('\n')
@@ -57,7 +57,7 @@ def scan_host(ip: str, moreInfo: bool):
 
                     print(f'[+] Host with IP {x} is {status["state"].upper()}')
                     print(f'\t└\\ Vendor => {len(vendor) > 0 and vendor[addresses["mac"]] or "NO INFORMATION"}')
-                    print(f'\t└\\ Addresses => Ip: {addresses["ipv4"]} | {addresses["mac"] and "MAC: " + addresses["mac"] or "NO MAC ADDRESS"}')
+                    print(f'\t└\\ Addresses => IPv4: {addresses["ipv4"]} | {"mac" in addresses and "MAC: " + addresses["mac"] or "NO MAC ADDRESS DETECTED"}')
                     print(f'\t└\\ State Reason => {status["state"].upper()} because {status["reason"].upper()}')
                     print()
 
